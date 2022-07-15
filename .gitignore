@@ -1,0 +1,4 @@
+/venv/
+/.idea/
+/domicileauth/media/
+/domicileauth/db.sqlite3
