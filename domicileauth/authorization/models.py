@@ -30,7 +30,8 @@ class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='images/')
     phone = models.CharField(max_length=13)
-    fio = models.CharField(max_length=100)
+    role = models.CharField(max_length=30, default='Возможный покупатель')
+    name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.fio
+        return self.name

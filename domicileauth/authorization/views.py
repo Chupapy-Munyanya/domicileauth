@@ -116,3 +116,17 @@ class CreateProfileAPIView(APIView):
             fio=data["fio"]
         )
         return Response(status=status.HTTP_201_CREATED)
+
+
+class UpdateRoleAPIView(APIView):
+    permission_classes = (AllowAny,)
+
+    def post(self, request):
+        try:
+            data = request.data
+            prof = Profile.objects.get(user=CustomUser.objects.get(pk=data['pk']))
+            prof.role = data['role']
+            prof.save(updated_fields=['role'])
+            return Response(status=status.HTTP_200_OK)
+        except CustomUser.DoesNotExists:
+            return Response(status=status.HTTP_404_NOT_FOUND)
