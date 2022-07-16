@@ -1,7 +1,8 @@
 from django.urls import path
 
 from .views import (
-    RegistrationAPIView, LoginAPIView, CustomUserRetrieveUpdateAPIView, RefreshView, ProfileAPIView, CreateProfileAPIView
+    RegistrationAPIView, LoginAPIView, CustomUserRetrieveUpdateAPIView, RefreshView, ProfileAPIView,
+    CreateProfileAPIView, UpdateRoleAPIView
 )
 
 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('user/', CustomUserRetrieveUpdateAPIView.as_view()),
     path('refresh/', RefreshView.as_view()),
     path('profile/', ProfileAPIView.as_view()),
-    path('createprofile/', CreateProfileAPIView.as_view())
+    path('createprofile/', CreateProfileAPIView.as_view()),
+    path('role/', UpdateRoleAPIView.as_view())
 ]
