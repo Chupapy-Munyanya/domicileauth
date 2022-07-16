@@ -96,7 +96,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ('user', 'avatar', 'phone', 'fio')
+        fields = ('user', 'avatar', 'phone', 'role', 'name')
 
     def create(self, validated_data):
         return Profile.objects.create(**validated_data)
